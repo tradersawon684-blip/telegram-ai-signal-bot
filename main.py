@@ -1,9 +1,9 @@
-
-import requests
+import os
 import time
+import requests
 
-BOT_TOKEN = "এখানে_আপনার_নতুন_BOT_TOKEN"
-CHAT_ID = "এখানে_আপনার_CHAT_ID"
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHAT_ID = os.environ.get("CHAT_ID")
 
 def send_signal(signal):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
