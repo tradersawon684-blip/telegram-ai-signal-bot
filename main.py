@@ -27,9 +27,10 @@ def main():
 
         signal = generate_signal(df)
 
+        # Debug: NO TRADE হলেও Telegram-এ পাঠাবে
         if signal["signal"] == "NO TRADE":
-    send_message(f"⚪ {pair}\nNO TRADE")
-    continue
+            send_message(f"⚪ {pair}\nNO TRADE")
+            continue
 
         message = f"""
 🤖 AI BINARY SIGNAL BOT V0.1
