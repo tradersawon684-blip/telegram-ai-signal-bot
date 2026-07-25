@@ -28,7 +28,8 @@ def main():
         signal = generate_signal(df)
 
         if signal["signal"] == "NO TRADE":
-            continue
+    send_message(f"⚪ {pair}\nNO TRADE")
+    continue
 
         message = f"""
 🤖 AI BINARY SIGNAL BOT V0.1
