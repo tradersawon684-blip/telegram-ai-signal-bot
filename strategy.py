@@ -8,25 +8,19 @@ def generate_signal(df):
     macd_signal = last["MACD_SIGNAL"]
 
     # BUY
-    if (
-        ema9 > ema21
-        and rsi < 35
-        and macd > macd_signal
-    ):
+    if ema9 > ema21 and macd > macd_signal:
+        confidence = "High" if rsi < 60 else "Medium"
         return {
             "signal": "BUY",
-            "confidence": "Medium"
+            "confidence": confidence
         }
 
     # SELL
-    if (
-        ema9 < ema21
-        and rsi > 65
-        and macd < macd_signal
-    ):
+    if ema9 < ema21 and macd < macd_signal:
+        confidence = "High" if rsi > 40 else "Medium"
         return {
             "signal": "SELL",
-            "confidence": "Medium"
+            "confidence": confidence
         }
 
     return {
